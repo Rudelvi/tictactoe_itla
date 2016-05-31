@@ -38,6 +38,82 @@ bool gameover()
 {
 	//TODO: Implement this method,verify if any player has won the match of it's being a tie.
 	//Return true if the game is over. Print message informing the user about what just happened.
+
+
+    //HorizontalValidation
+	char playerFound = board [0][0];
+    for(int i =0 ; i < 3; i++){
+             for(int j = 0 ; j < 3 ; j++){
+                     if(board[i][j] == '_'){
+                          break; break;
+                     }
+                     if(playerFound != board[i][j]){
+                          break; break;
+
+                     }
+                     playerFound = board[i][j];
+                     if(j == 2){
+                          cout << "There is a winner, it's:" <<player << endl;
+                          return true;
+                     }
+              }
+
+     }
+
+      //VerticalValidation
+     playerFound = board[0][0];
+     for(int i =0 ; i < 3; i++){
+             for(int j = 0 ; j < 3 ; j++){
+                     if(board[j][i] == '_'){
+                          break; break;
+                     }
+                     if(playerFound != board[j][i]){
+                          break; break;
+
+                     }
+                     playerFound = board[j][i];
+                     if(j == 2){
+                         cout << "There is a winner, it's:" <<player << endl;
+                          return true;
+                     }
+              }
+     }
+
+
+     //DiagonalFromLeftToRight
+     playerFound = board[0][0];
+     for(int i = 0 ; i < 3; i++){
+           if(board[i][i] == '_'){
+                 break;
+             }
+             if(playerFound != board[i][i]){
+                   break;
+
+             }
+             playerFound = board[i][i];
+             if(i == 2){
+                  cout << "There is a winner, it's:" <<player << endl;
+                    return true;
+             }
+     }
+
+     //DiagonalFromRightToLeft
+     playerFound = board[0][0];
+     for(int i = 2 ; i >= 0; i--){
+           if(board[2-i][i] == '_'){
+                 break;
+             }
+             if(playerFound != board[2-i][i]){
+                   break;
+
+             }
+             playerFound = board[2-i][i];
+             if(i == 0){
+                   cout << "There is a winner, it's:" <<player << endl;
+                    return true;
+             }
+     }
+
 	return false;
 }
 
